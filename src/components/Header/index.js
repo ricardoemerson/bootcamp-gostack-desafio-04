@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from './styles';
 
-import facebook from '../../assets/facebook-1.png';
+import facebook from '../../assets/facebook.png';
 import account from '../../assets/account-circle-material.png'
 
 export default function Header() {
