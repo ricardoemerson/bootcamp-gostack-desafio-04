@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-export default function PostItem({ post }) {
+function PostItem({ post }) {
   const { author, comments } = post;
 
   return (
@@ -32,3 +33,26 @@ export default function PostItem({ post }) {
     </Container>
   );
 }
+
+PostItem.propTypes = {
+  post: PropTypes.shape({
+    id: PropTypes.number,
+    author: PropTypes.shape({
+      name: PropTypes.string,
+      avatar:PropTypes.string,
+    }),
+    date: PropTypes.string,
+    content: PropTypes.string,
+    comments: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      author: PropTypes.shape({
+        name: PropTypes.string,
+        avatar:PropTypes.string,
+      }),
+      date: PropTypes.string,
+      content: PropTypes.string,
+    })),
+  }).isRequired,
+}
+
+export default PostItem;
